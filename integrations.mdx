@@ -1,0 +1,166 @@
+---
+title: Platform Integrations and Partnerships
+description: Understand how MakeItEarn integrates with Shopify, Amazon, and Kickstarter to streamline your e-commerce operations and maximize reach.
+---
+
+## Overview
+
+MakeItEarn provides seamless integrations with leading e-commerce platforms like Shopify, Amazon, and Kickstarter. You connect these services to automate store setup, manage seller accounts, launch crowdfunding campaigns, and handle third-party tools. Use webhooks and APIs to create custom workflows that scale your online brand.
+
+<Callout kind="info">
+  All integrations require a valid MakeItEarn API key. Generate one from your dashboard at `https://dashboard.makeitearn.com/api-keys`.
+</Callout>
+
+## Key Integrations
+
+Explore the core platforms MakeItEarn supports through dedicated features.
+
+<Columns cols={3}>
+  <Card title="Shopify" icon="shopping-cart" href="#shopify-setup">
+    Automate store creation, theme optimization, and product syncing.
+  </Card>
+  <Card title="Amazon" icon="package" href="#amazon-management">
+    Manage seller accounts, listings, and fulfillment efficiently.
+  </Card>
+  <Card title="Kickstarter" icon="gift" href="#kickstarter-integration">
+    Launch and track crowdfunding projects with real-time updates.
+  </Card>
+</Columns>
+
+## Platform Setup Guides
+
+Follow these platform-specific instructions to get started quickly.
+
+<Tabs>
+  <Tab title="Shopify" icon="shopping-cart">
+
+    ## Shopify Store Setup
+
+    Connect your Shopify store to MakeItEarn for automated optimization.
+
+    <Steps>
+      <Step title="Create API Key" icon="key">
+        Log in to Shopify admin and generate a private app API key with `read_products` and `write_themes` scopes.
+      </Step>
+      <Step title="Link in Dashboard" icon="link">
+        In MakeItEarn dashboard, navigate to Integrations > Shopify and paste your store URL (`https://yourstore.myshopify.com`) and API credentials.
+      </Step>
+      <Step title="Optimize Store" icon="zap">
+        Run the optimization wizard to auto-install apps and tweak themes.
+      </Step>
+    </Steps>
+
+  </Tab>
+
+  <Tab title="Amazon Seller Central" icon="package">
+
+    ## Amazon Seller Account Management
+
+    Sync inventory and orders effortlessly.
+
+    <Steps>
+      <Step title="Authorize Access" icon="shield">
+        In Amazon Seller Central, create a developer app and note your MWS or SP-API credentials.
+      </Step>
+      <Step title="Configure Sync" icon="settings">
+        Enter credentials in MakeItEarn under Integrations > Amazon, select marketplaces (e.g., US, EU).
+      </Step>
+      <Step title="Automate Listings" icon="trending-up">
+        Enable auto-listing rules for new products.
+      </Step>
+    </Steps>
+
+  </Tab>
+
+  <Tab title="Kickstarter" icon="gift">
+
+    ## Kickstarter Project Integration
+
+    Track pledges and fulfillment directly.
+
+    <Steps>
+      <Step title="API Access" icon="key">
+        Create a Kickstarter API token via developer settings.
+      </Step>
+      <Step title="Connect Project" icon="link">
+        Paste project URL and token in MakeItEarn dashboard.
+      </Step>
+      <Step title="Monitor Campaign" icon="activity">
+        Set up notifications for funding milestones.
+      </Step>
+    </Steps>
+
+  </Tab>
+</Tabs>
+
+## API and Webhook Usage
+
+MakeItEarn exposes REST APIs and webhooks for advanced workflows. Base URL: `https://api.makeitearn.com/v1`.
+
+<ParamField path="shopify-stores" param-type="POST" required="true">
+  Endpoint to create or sync Shopify stores.
+</ParamField>
+
+<ParamField header="Authorization" param-type="string" required="true">
+  Bearer `{YOUR_API_KEY}`.
+</ParamField>
+
+<ParamField body="store_url" param-type="string" required="true">
+  Your Shopify store URL, e.g., `https://mystores.myshopify.com`.
+</ParamField>
+
+### Webhook Example
+
+Set up webhooks to receive real-time events like order updates.
+
+<CodeGroup tabs="JavaScript,cURL">
+  ```javascript
+  // Register webhook for order.created events
+  const response = await fetch('https://api.makeitearn.com/v1/webhooks', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      event: 'order.created',
+      url: 'https://your-webhook-url.com/makeitearn'
+    })
+  });
+  ```
+  ```bash
+  curl -X POST https://api.makeitearn.com/v1/webhooks \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "event": "order.created",
+      "url": "https://your-webhook-url.com/makeitearn"
+    }'
+  ```
+</CodeGroup>
+
+## Third-Party Tool Connections
+
+Connect popular tools for extended functionality.
+
+<ExpandableGroup>
+  <Expandable title="Zapier Integration" default-open="true">
+    Use MakeItEarn's Zapier app to connect with 5000+ apps. Search for "MakeItEarn" in Zapier and authenticate with your API key. Common zaps include syncing Shopify orders to Google Sheets.
+  </Expandable>
+  <Expandable title="Google Analytics">
+    Link via API to track e-commerce performance across platforms.
+  </Expandable>
+  <Expandable title="Email Tools (Klaviyo)">
+    Automate customer emails triggered by Amazon sales or Kickstarter pledges.
+  </Expandable>
+</ExpandableGroup>
+
+## Next Steps
+
+<Card title="Advanced Workflows" icon="code" href="/docs/workflows">
+  Build custom automations with webhooks.
+</Card>
+
+<Card title="Troubleshooting" icon="help-circle" href="/docs/troubleshooting">
+  Common integration issues and fixes.
+</Card>

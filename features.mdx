@@ -1,0 +1,132 @@
+---
+title: Core Features and Services
+description: Explore MakeItEarn's comprehensive services including business setup, expert training, and community support tailored for e-commerce growth.
+---
+
+## Overview
+
+MakeItEarn empowers you to launch and scale your online brand with specialized e-commerce services. You get hands-on assistance for Shopify stores, Amazon listings, and Kickstarter campaigns. Our experts handle setup, provide training, and offer ongoing support to drive your growth.
+
+<Columns cols={3}>
+  <Card title="Business Setup" icon="package" href="#business-setup">
+    Launch your store quickly with guided setup.
+  </Card>
+  <Card title="Expert Training" icon="graduation-cap" href="#expert-training">
+    Master platforms through structured programs.
+  </Card>
+  <Card title="Community Support" icon="users" href="#community-support">
+    Network and get advice from peers.
+  </Card>
+</Columns>
+
+## Business Setup and Launch Assistance
+
+You start your e-commerce journey with our end-to-end setup service. We configure your Shopify store, optimize Amazon product listings, and prepare Kickstarter pages for maximum impact.
+
+<Steps>
+  <Step title="Choose Platform" icon="shopping-bag">
+    Select Shopify, Amazon, or Kickstarter based on your product.
+  </Step>
+  <Step title="Store Configuration">
+    We set up themes, payments, and shipping.
+    
+````liquid
+<!-- Sample Shopify theme snippet -->
+<div class="product-card">
+  {% for product in collections.frontpage.products %}
+    <a href="{{ product.url }}">
+      <img src="{{ product.featured_image | img_url: '300x300' }}" alt="{{ product.title }}">
+      <h3>{{ product.title }}</h3>
+      <span>{{ product.price | money }}</span>
+    </a>
+  {% endfor %}
+</div>
+````
+  </Step>
+  <Step title="Go Live" icon="rocket">
+    Test and launch with our quality checks.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Expect launch in under 2 weeks with our streamlined process.
+</Callout>
+
+## Expert Training Programs
+
+Build your skills with tailored training for Shopify, Amazon, and Kickstarter. Choose your focus to gain practical knowledge.
+
+<Tabs>
+  <Tab title="Shopify" icon="shopping-cart">
+    Learn store customization and SEO.
+    
+    <CodeGroup tabs="CLI,Theme">
+````bash
+# Install Shopify CLI
+npm install -g @shopify/cli@latest
+shopify app init my-store-app
+````
+````liquid
+<!-- Custom section -->
+<section id="hero">
+  <h1>Welcome to Your Store</h1>
+  <p>Built with MakeItEarn expertise.</p>
+</section>
+````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Amazon" icon="package">
+    Master Seller Central, PPC ads, and listings.
+    
+    ```html
+    <!-- Optimized product listing HTML -->
+    <div class="product-detail">
+      <h2>Premium Widget</h2>
+      <ul>
+        <li>High-quality materials</li>
+        <li>Fast shipping</li>
+      </ul>
+    </div>
+    ```
+  </Tab>
+  <Tab title="Kickstarter" icon="heart">
+    Craft compelling campaigns and backer updates.
+  </Tab>
+</Tabs>
+
+## Kickstarter Campaign Strategies
+
+You receive proven strategies for successful crowdfunding. We help design rewards, create video pitches, and manage backer communications to hit your funding goals.
+
+| Strategy | Benefit | Timeline |
+|----------|---------|----------|
+| Reward Tiers | Attract diverse backers | Week 1 |
+| Email Outreach | Build pre-launch buzz | Weeks 2-3 |
+| Post-Launch Updates | Maintain momentum | Ongoing |
+
+## Ongoing Community Support and Networking
+
+Join our exclusive community for continuous advice. You access forums, live Q&A sessions, and networking events with successful e-commerce founders.
+
+<Expandable title="Access Community Features" default-open="true">
+  - Weekly webinars on trends
+  - Private Slack channels for troubleshooting
+  - Mentorship matching
+</Expandable>
+
+## Customized Growth Plans
+
+Tailor your expansion with data-driven plans. We analyze your metrics and create roadmaps for scaling sales.
+
+<Callout kind="success">
+  Clients see average 3x growth in first year.
+</Callout>
+
+<Columns cols={2}>
+  <Card title="Metrics Review" icon="bar-chart-3">
+    Track KPIs like conversion rate.
+  </Card>
+  <Card title="Optimization Roadmap" icon="trending-up">
+    Implement A/B tests and automations.
+  </Card>
+</Columns>
